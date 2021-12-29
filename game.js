@@ -26,6 +26,7 @@ $('.start-button').click(function(){
 
 // Make a new sequence
 function nextSequence() {
+  userClickedPattern = [];
   level++;
   $('h1').text("Level " + level);
   var randomNumber = Math.floor(Math.random() * 4);
@@ -65,12 +66,19 @@ function animatePress(currentColour){
 
 // Check the patterns
 function checkAnswer(currentLevel){
-  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]){
-    //console.log("success");
-    if(userClickedPattern.length === gamePattern.length){
+
+  if(userClickedPattern[currentLevel] === gamePattern[currentLevel]){
+    var count = 0;
+    for (var i = 0; i < gamePattern.length; i++) {
+      if(gamePattern[i] === userClickedPattern[i]){
+        count++;
+      }
+    }
+    if(count === gamePattern.length){
+      console.log("success");
       setTimeout(function(){
-        nextSequence();
-      },1000);
+          nextSequence();
+        }, 1000);
     }
   }
   else{
