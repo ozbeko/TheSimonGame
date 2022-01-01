@@ -1,2 +1,2 @@
 # TheSimonGame
-The Simon Game implementation with JavaScript
+The Simon Game implementation in JavaScript with jQuery Library
